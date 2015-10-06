@@ -118,6 +118,11 @@ class Blog_user_model extends Base_module_record {
 		return $this->_CI->fuel_blog->url('authors/'.$this->fuel_user_id);
 	}
 
+	function get_clickable_name()
+    {
+        return "<a href=\"" . $this->get_url() . "\">{$this->name}</a>";
+    }
+
 	function get_website_link()
 	{
 		return '<a href="'.prep_url($this->website).'">'.$this->website.'</a>';
