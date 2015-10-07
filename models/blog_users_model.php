@@ -166,5 +166,15 @@ class Blog_user_model extends Base_module_record {
 		}
 		return '';
 	}
+
+	public function get_about_first_sentence($strict = false, $end = '.?!')
+	{
+		$text = $this->about;
+		preg_match("/^[^{$end}]+[{$end}]/", $text, $result);
+	    if (empty($result)) {
+	        return ($strict ? false : $text);
+	    }
+	    return $result[0];
+	}
 	
 }

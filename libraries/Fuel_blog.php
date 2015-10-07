@@ -480,10 +480,25 @@ class Fuel_blog extends Fuel_advanced_module {
 	 * @param	int
 	 * @return	array
 	 */
-	public function get_recent_posts($limit = 5, $where = array())
+	public function get_recent_posts($limit = 3, $where = array())
 	{
 		$posts = $this->get_posts($where, 'publish_date desc', $limit);
 		return $posts;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Returns the most recent comments
+	 *
+	 * @access	public
+	 * @param	int
+	 * @return	array
+	 */
+	public function get_recent_comments($limit = 3, $where = array())
+	{
+		$comments = $this->get_comments($where, 'publish_date desc', $limit);
+		return $comments;
 	}
 	
 	// --------------------------------------------------------------------

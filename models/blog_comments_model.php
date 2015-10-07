@@ -227,6 +227,7 @@ class Blog_comment_model extends Base_module_record {
 	public $title;
 	public $slug;
 	public $spam_checked = FALSE;
+	public $post_link_title = null;
 
 	// not using filtered fields because we don't want any PHP function translation'
 	function get_content_formatted()
@@ -241,7 +242,7 @@ class Blog_comment_model extends Base_module_record {
 		$model = $this->_CI->fuel->blog->model('blog_posts');
 		return $model->find_by_key($this->post_id);
 	}
-	
+
 	function is_duplicate()
 	{
 		$where['UPPER('.$this->_parent_model->tables('blog_comments').'.content)'] = strtoupper($this->content);
