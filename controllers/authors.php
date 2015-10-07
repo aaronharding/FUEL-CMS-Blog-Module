@@ -44,6 +44,7 @@ class Authors extends Blog_base_controller {
 				if (empty($author)) show_404();
 				$vars['author'] = $author;
 				$vars['page_title'] = $author->name;
+				
 				$output = $this->_render('author', $vars, TRUE);
 			}
 			else

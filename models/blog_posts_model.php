@@ -463,7 +463,6 @@ class Blog_post_model extends Base_module_record {
 	
 	function get_comments_formatted($block = 'comment', $parent_id = 0, $container_class = 'child')
 	{
-		
 		// initialization... grab all comments
 		$items = array();
 		if (empty($this->_objs['comments']))

@@ -113,9 +113,13 @@ class Blog_user_model extends Base_module_record {
 	
 	protected $_parsed_fields = array('about');
 	
-	function get_url()
+	public function get_url()
 	{
-		return $this->_CI->fuel_blog->url('authors/'.$this->fuel_user_id);
+		if(isset($this->_CI->fuel_blog)):
+			return $this->_CI->fuel_blog->url('authors/'.$this->fuel_user_id);
+		else:
+			return 'authors/'.$this->fuel_user_id;
+		endif;
 	}
 
 	function get_clickable_name()
