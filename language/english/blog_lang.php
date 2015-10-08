@@ -170,6 +170,7 @@ $lang['blog_pagination_all'] = 'Back to All Posts';
 $lang['blog_pagination_next'] = 'Next';
 $lang['blog_pagination_prev'] = 'Previous';
 $lang['blog_comment_heading'] = 'Comment';
+$lang['blog_comments_heading'] = 'Comments';
 $lang['blog_leave_comment_heading'] = 'Leave a Comment';
 $lang['blog_comments_off'] = 'Comments have been turned off for this post.';
 $lang['blog_comment_thanks'] = 'Thanks for the comment';
