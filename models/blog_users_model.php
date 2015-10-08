@@ -115,11 +115,7 @@ class Blog_user_model extends Base_module_record {
 	
 	public function get_url()
 	{
-		if(isset($this->_CI->fuel_blog)):
-			return $this->_CI->fuel_blog->url('authors/'.$this->fuel_user_id);
-		else:
-			return 'authors/'.$this->fuel_user_id;
-		endif;
+		return $this->_CI->fuel->blog->url('authors/'.$this->fuel_user_id);
 	}
 
 	function get_clickable_name()
