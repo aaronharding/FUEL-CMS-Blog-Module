@@ -38,12 +38,21 @@
 
 			<?php $posts = $author->posts; ?>
 				<?php if (!empty($posts)) : ?>
-				<h4>Posts By <?=$author->name?></h4>
-				<ul>
+
+				<h4 class="blog-author-title">Posts By <?=$author->name?></h4>
+				<?=$this->fuel->blog->block('posts', array(
+					'posts' => $posts,
+					'is_preview' => true
+				))?>
+			<!-- 	<h4 class="blog-author-title">Posts By <?=$author->name?></h4>
+				<ul class="blog-author-posts">
 					<?php foreach($posts as $post) : ?>
-					<li><a href="<?=$post->url ?>"><?=$post->title?></a></li>
+					<li class="blog-author-posts-post">
+						<h4><a href="<?=$post->url ?>"><?=$post->title?></a></h4>
+						<p><?=$post->excerpt_formatted?> </p>
+					</li>
 					<?php endforeach; ?>
-				</ul>
+				</ul> -->
 			<?php endif; ?>
 
 

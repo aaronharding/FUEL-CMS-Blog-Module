@@ -11,7 +11,7 @@
 		<?=lang('blog_post_published')?> 
 		<span class="post_content_date"><?=$post->get_date_formatted(lang('blog_post_date_format'))?></span> 
 		<?=lang('blog_post_published_by')?> 
-		<span class="post_author_name"><?=$post->author_name?></span>
+		<span class="post_author_name"><?=$post->author_link?></span>
 	</div>
 	
 </div>
