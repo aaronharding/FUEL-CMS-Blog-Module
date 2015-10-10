@@ -1,4 +1,4 @@
-<div class="<?=($comment->is_child()) ? 'comments_list-comment comments_list-comment_child' : 'comments_list-comment'?>" id="comment-<?=$comment->id?>">
+<div class="<?=($comment->is_child()) ? 'comments_list-comment comments_list-comment_child' : 'comments_list-comment'?> comment" id="comment-<?=$comment->id?>">
 
 	<div class="comments_list-comment-content">
 		<?php if ($comment->is_by_post_author()) :?>
