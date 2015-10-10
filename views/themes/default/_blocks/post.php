@@ -20,7 +20,7 @@
 <?php if ($post->comments_count > 0) : ?>
 
 	<div class="post-comments">
-		<div class="post-comments_list comments_list">
+		<div class="post-comments_list comments_list comments">
 
 			<h4 id="comments"><?=lang($post->comments_count === 1 ? 'blog_comment_heading' : 'blog_comments_heading')?></h4>
 
