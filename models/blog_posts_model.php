@@ -490,9 +490,9 @@ class Blog_post_model extends Base_module_record {
 				$children = $this->get_comments_formatted($block, $item->id);
 				if (!empty($children))
 				{
-					$str .= "<div class=\"".$container_class."\">\n\t";
+					//$str .= "<div class=\"".$container_class."\">\n\t";
 					$str .= $children;
-					$str .= "</div>\n";
+					//$str .= "</div>\n";
 				}
 			}
 		}
