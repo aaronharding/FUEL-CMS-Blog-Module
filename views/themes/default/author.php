@@ -42,7 +42,8 @@
 				<h4 class="blog-author-title">Posts By <?=$author->name?></h4>
 				<?=$this->fuel->blog->block('posts', array(
 					'posts' => $posts,
-					'is_preview' => true
+					'is_preview' => true,
+					'hide_author' => true
 				))?>
 			<!-- 	<h4 class="blog-author-title">Posts By <?=$author->name?></h4>
 				<ul class="blog-author-posts">

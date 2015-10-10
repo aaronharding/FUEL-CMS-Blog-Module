@@ -587,7 +587,7 @@ class Blog_post_model extends Base_module_record {
 		$author = $this->get_author(TRUE);
 		if(is_true_val($author->active))
 		{
-			return '<a href="'.$author->url.'">'.$author->display_name.'</a>';
+			return '<a data-popover="' . htmlspecialchars(json_encode($author->popover_data), ENT_QUOTES, 'UTF-8') .'" href="'.$author->url.'">'.$author->display_name.'</a>';
 		}else{
 			return $author->display_name;
 		}

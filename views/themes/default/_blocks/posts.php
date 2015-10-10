@@ -13,7 +13,11 @@
 
 					<?=fuel_edit($post)?>
 
-					<?=blog_block('post_unpublished', array('post' => $post))?>
+					<?php
+						if(function_exists('blog_block')) {
+							blog_block('post_unpublished', array('post' => $post));
+						} 
+					?>
 				
 					<h4><a href="<?=$post->url?>"><?=$post->title?></a></h4> 
 
@@ -28,7 +32,7 @@
 
 					<div class="post-sub">
 
-						<?php if(!isset($is_preview) && !$is_preview): ?>
+						<?php if(isset($hide_author) === false || !$hide_author): ?>
 							<p><?=lang('blog_post_published_by')?> <?=$post->author_link?></p>
 						<?php endif; ?>
 						<p>

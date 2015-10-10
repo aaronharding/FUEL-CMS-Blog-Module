@@ -25,7 +25,6 @@
 			<h4 id="comments"><?=lang($post->comments_count === 1 ? 'blog_comment_heading' : 'blog_comments_heading')?></h4>
 
 			<?=$post->comments_formatted?>
-			<?=js('comment_reply', BLOG_FOLDER)?>
 			
 			<?php /* Another example without the nesting... ?>
 			<?php foreach($post->comments as $comment) : ?>

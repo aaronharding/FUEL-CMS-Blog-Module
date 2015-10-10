@@ -118,9 +118,12 @@ class Blog_user_model extends Base_module_record {
 		return $this->_CI->fuel->blog->url('authors/'.$this->fuel_user_id);
 	}
 
-	function get_clickable_name()
+	function get_clickable_name($popover = true)
     {
-        return "<a href=\"" . $this->get_url() . "\">{$this->name}</a>";
+    	if($popover)
+    		return '<a data-popover="' . htmlspecialchars(json_encode($this->popover_data), ENT_QUOTES, 'UTF-8') .'" href="'.$this->get_url().'">'.$this->name.'</a>';
+        else
+        	return "<a href=\"" . $this->get_url() . "\">{$this->name}</a>";
     }
 
 	function get_website_link()
@@ -132,6 +135,32 @@ class Blog_user_model extends Base_module_record {
 	{
 		$params['order_by'] ='publish_date desc';
 		return $this->lazy_load(array($this->_parent_model->tables('blog_posts').'.author_id' => $this->fuel_user_id, $this->_parent_model->tables('blog_posts').'.published' => 'yes'), array(BLOG_FOLDER => 'blog_posts_model'), TRUE, $params);
+	}
+
+	function get_popover_data()
+	{
+		return array(
+			'name' => $this->display_name,
+			'url' => $this->url,
+			'image' => $this->avatar_image_path,
+			'text' => $this->get_about_first_sentence(),
+			'data' => $this->popover_text
+		);
+	}
+
+	function get_popover_text($limit = 3)
+	{
+		$posts = array();
+		$count = 0;
+		foreach ($this->get_posts() as $key => $post) {
+			$count++;
+			if($count > $limit) break;
+
+			array_push($posts, array(
+				'title' => $post->link_title
+			));
+		}
+		return $posts;
 	}
 
 	function get_posts_url($full_path = TRUE)
