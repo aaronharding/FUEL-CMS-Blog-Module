@@ -187,7 +187,7 @@ class Blog_user_model extends Base_module_record {
 		$attrs = html_attrs($attrs);
 		if (!empty($this->avatar_image))
 		{
-			return '<img src="'.$src.'"'.$attrs.' />';
+			return '<img width="56" height="56" alt="' . $this->name . '" src="'.$src.'"'.$attrs.' />';
 		}
 		return '';
 	}
