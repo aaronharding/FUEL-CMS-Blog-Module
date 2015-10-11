@@ -51,7 +51,7 @@
 
 		</ul>
 		
-		<?php if(!isset($is_preview) && !$is_preview): ?>
+		<?php if(!isset($is_preview) || !$is_preview): ?>
 			<div class="posts-archive">
 				<div class="posts-pagination">
 					<?php if (!empty($pagination)) : ?><?=$pagination?>  &nbsp;<?php endif; ?>

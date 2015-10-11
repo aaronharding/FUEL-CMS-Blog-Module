@@ -100,11 +100,12 @@ class Captcha {
 	   
 	 	
 		$img = imagecreatetruecolor( $this->img_width, $this->img_height);
+		imageantialias($img, TRUE);
 		imagefilledrectangle($img, 0, 0, $this->img_width - 1, $this->img_height - 1, $this->gd_color( $this->bg_color ));
 		
 				
 		// Draw lines
-		for ($i = 0; $i < $this->line_count; $i++)
+		for ($i = 0; $i < $this->line_count + 2; $i++)
 			imageline($img,
 				rand(0, $this->img_width  - 1),
 				rand(0, $this->img_height - 1),
@@ -168,7 +169,7 @@ class Captcha {
 		
 		$img_name =  $now . '.jpg';
 		
-		ImageJPEG( $img,  $this->img_path.$img_name);
+		ImageJPEG( $img,  $this->img_path.$img_name, 100);
 		
 		$img_markup = '<img src="' . $this->img_url . $img_name . '" width=" ' . $this->img_width
 					. '" height="' . $this->img_height . '" style="border:0;" alt=" " />';

@@ -7,7 +7,8 @@
 		<?=$post->content_formatted?>
 	</div>
 	
-	<div class="post-content-author_date">
+	<div class="post-content-meta">
+		<?=$post->author->get_avatar_img_tag(array('class' => 'avatar post-content-meta-avatar'))?>
 		<?=lang('blog_post_published')?> 
 		<span class="post_content_date"><?=$post->get_date_formatted(lang('blog_post_date_format'))?></span> 
 		<?=lang('blog_post_published_by')?> 

@@ -20,7 +20,7 @@
 				<?=$author->about_formatted?>
 			</div>
 			<div class="blog-author-detail-meta">
-				<?php if (!empty($author->email)) : ?>
+				<?php if (false && !empty($author->email)) : ?>
 					<p><?=safe_mailto($author->email)?></p>
 				<?php endif; ?>
 				

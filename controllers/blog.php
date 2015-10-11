@@ -525,6 +525,7 @@ class Blog extends Blog_base_controller {
 			$msg .= lang('blog_email_author_ip').": ".gethostbyaddr($comment->author_ip)." (".$comment->author_ip.")\n";
 			$msg .= lang('blog_email_content').": ".$comment->content."\n";
 
+			return TRUE;
 			$this->email->message($msg);
 
 			return $this->email->send();
