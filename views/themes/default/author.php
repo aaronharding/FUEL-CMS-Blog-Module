@@ -8,7 +8,7 @@
 	</div>
 </div>
 
-<div class="section main blog-author-detail">
+<div class="section blog-author-detail">
 	<div class="row">
 		<?php if (!empty($author->avatar_image)) : ?>
 			<div class="cell cell-two">
