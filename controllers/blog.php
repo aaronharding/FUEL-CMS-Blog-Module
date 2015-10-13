@@ -357,7 +357,11 @@ class Blog extends Blog_base_controller {
 			{
 				if ($comment->save())
 				{
-					$notified = $this->_notify($comment, $post);
+					// if the blog setting is on, then attempt to notify the comment author through email
+					if($this->fuel->blog->config('email_notify_comment_reply')) {
+						$notified = $this->_notify($comment, $post);
+					}
+					
 					$this->load->library('session');
 					$vars['post'] = $post;
 					$vars['comment'] = $comment;
@@ -507,8 +511,6 @@ class Blog extends Blog_base_controller {
 		// send email to post author
 		if (!empty($post->author))
 		{
-			return TRUE;
-			
 			$config['wordwrap'] = TRUE;
 			$this->load->library('email', $config);
 

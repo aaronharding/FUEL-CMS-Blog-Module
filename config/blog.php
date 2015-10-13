@@ -50,13 +50,13 @@ $config['blog']['image_sizes'] = array(
 	'thumbnail' => array('width' => 100, 'height' => 100, 'resize_method' => 'resize_and_crop', 'resize_and_crop' => TRUE),  
 	'avatar'    => array('width' => 100, 'height' => 95, 'resize_method' => 'resize_and_crop', 'resize_and_crop' => TRUE)
 );
+$config['blog']['settings']['enable_email_notifications'] = TRUE;
 $config['blog']['stopforumspam'] = array(
 	'ip_threshold_flag'      => 5,
 	'email_threshold_flag'   => 20,
 	'ip_threshold_ignore'    => 20,
 	'email_threshold_ignore' => 50,
 );
-$config['blog']['settings']['enable_email_notifications'] = TRUE;
 
 // used for Settings area
 $config['blog']['settings']['title'] = array();
