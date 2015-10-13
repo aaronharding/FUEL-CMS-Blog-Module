@@ -118,12 +118,17 @@ class Blog_user_model extends Base_module_record {
 		return $this->_CI->fuel->blog->url('authors/'.$this->fuel_user_id);
 	}
 
-	function get_clickable_name($popover = true)
+	function get_clickable_name($popover = true, $text = null)
     {
-    	if($popover)
-    		return '<a data-popover="' . htmlspecialchars(json_encode($this->popover_data), ENT_QUOTES, 'UTF-8') .'" href="'.$this->get_url().'">'.$this->name.'</a>';
-        else
-        	return "<a href=\"" . $this->get_url() . "\">{$this->name}</a>";
+    	if($text == null) {
+    		$text = $this->name;
+    	}
+
+    	if($popover) {
+    		return '<a data-popover="' . $this->popover_data_json .'" href="'.$this->get_url().'">'.$text.'</a>';
+        } else {
+        	return "<a href=\"" . $this->get_url() . "\">{$text}</a>";
+        }
     }
 
 	function get_website_link()
@@ -137,6 +142,11 @@ class Blog_user_model extends Base_module_record {
 		return $this->lazy_load(array($this->_parent_model->tables('blog_posts').'.author_id' => $this->fuel_user_id, $this->_parent_model->tables('blog_posts').'.published' => 'yes'), array(BLOG_FOLDER => 'blog_posts_model'), TRUE, $params);
 	}
 
+	function get_popover_data_json()
+	{
+		return htmlspecialchars(json_encode($this->popover_data), ENT_QUOTES, 'UTF-8');
+	}
+
 	function get_popover_data()
 	{
 		return array(
@@ -144,7 +154,7 @@ class Blog_user_model extends Base_module_record {
 			'url' => $this->url,
 			'image' => $this->avatar_image_path,
 			'text' => $this->get_about_first_sentence(),
-			'data' => $this->popover_text
+			'data' => $this->get_popover_text()
 		);
 	}
 
@@ -187,7 +197,8 @@ class Blog_user_model extends Base_module_record {
 		$attrs = html_attrs($attrs);
 		if (!empty($this->avatar_image))
 		{
-			return '<img width="56" height="56" alt="' . $this->name . '" src="'.$src.'"'.$attrs.' />';
+			$text = '<img width="56" height="56" alt="' . $this->name . '" src="'.$src.'"'.$attrs.' />';
+			return $this->get_clickable_name(true, $text);
 		}
 		return '';
 	}

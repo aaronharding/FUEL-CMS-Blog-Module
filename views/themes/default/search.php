@@ -2,7 +2,10 @@
 	<div class="row">
 		<div class="cell cell-full">
 			<?php if ($searched): ?>
-				<h2><?=lang('blog_search', count($posts), $q)?></h2>
+				<h2><?php
+					$count = count($posts);
+					echo lang($count === 1 ? 'blog_search_plural' : 'blog_search', count($posts), $q);
+				?></h2>
 			<?php else: ?>
 				<h2>Search</h2>
 			<?php endif; ?>
@@ -36,15 +39,15 @@
 
 				<?php else : ?>
 
-					<p>There were no search results returned.</p>
-					<p>Input your search below:</p>
+					<p>Eek, we couldn't find anything. Have you tried <a href="/blog/archives">looking in our archives?</a></p>
+					<!-- <p>Input your search below:</p> -->
 					<?=$search_input?>
 
 				<?php endif; ?>
 				
 			<?php else : ?>
 				
-				<p>Input your search below:</p>
+				<!-- <p>Input your search below:</p> -->
 
 				<?=$search_input?>
 				

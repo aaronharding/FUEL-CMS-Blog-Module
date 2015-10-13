@@ -507,6 +507,8 @@ class Blog extends Blog_base_controller {
 		// send email to post author
 		if (!empty($post->author))
 		{
+			return TRUE;
+			
 			$config['wordwrap'] = TRUE;
 			$this->load->library('email', $config);
 
@@ -525,7 +527,6 @@ class Blog extends Blog_base_controller {
 			$msg .= lang('blog_email_author_ip').": ".gethostbyaddr($comment->author_ip)." (".$comment->author_ip.")\n";
 			$msg .= lang('blog_email_content').": ".$comment->content."\n";
 
-			return TRUE;
 			$this->email->message($msg);
 
 			return $this->email->send();

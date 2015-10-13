@@ -31,10 +31,10 @@ $lang['blog_error_delete_uncategorized'] = 'You cannot delete the Uncategorized 
 */
 $lang['blog_archives_page_title'] = 'Archives';
 $lang['blog_authors_list_page_title'] = 'Authors';
-$lang['blog_author_posts_page_title'] = '%s Posts';
+$lang['blog_author_posts_page_title'] = '%s posts';
 $lang['blog_categories_page_title'] = 'Categories';
 $lang['blog_tags_page_title'] = 'Tags';
-$lang['blog_search_page_title'] = '%s Search Results';
+$lang['blog_search_page_title'] = '%s search results';
 
 /*
 |--------------------------------------------------------------------------
@@ -144,6 +144,7 @@ $lang['form_label_cache_ttl'] = 'Cache Time to Live';
 $lang['form_label_asset_upload_path'] = 'Asset Upload Path';
 $lang['form_label_per_page'] = 'Per Page';
 $lang['form_label_page_title_separator'] = 'Page Title Separator';
+$lang['form_label_enable_email_notifications'] = 'Enable E-mail Notifications';
 
 
 /*
@@ -165,7 +166,8 @@ $lang['blog_post_date_format'] = 'F d, Y';
 $lang['blog_post_text_comments'] = 'comments';
 $lang['blog_post_text_comment'] = 'comment';
 $lang['blog_post_excerpt_text'] = 'Continued..';
-$lang['blog_search'] = '%1s Search Result(s) Returned for “%2s”';
+$lang['blog_search'] = 'Nothing found for <strong>%2s</strong>';
+$lang['blog_search_plural'] = '%1s result for <strong>%2s</strong>';
 $lang['blog_pagination_all'] = 'Back to All Posts';
 $lang['blog_pagination_next'] = 'Next';
 $lang['blog_pagination_prev'] = 'Previous';
