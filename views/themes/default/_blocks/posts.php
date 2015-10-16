@@ -33,8 +33,14 @@
 					<div class="post-sub">
 
 						<?php if(isset($hide_author) === false || !$hide_author): ?>
-							<?=$post->author->get_avatar_img_tag(array('class' => 'avatar post-sub-avatar'))?>
-							<p><?=lang('blog_post_published_by')?> <?php echo $post->get_author_link(); ?></p>
+							<?php $image = $post->author->get_avatar_img_tag(array('class' => 'avatar post-sub-avatar')); ?>
+							<?php if($image && $image != "") :?>
+								<?php echo $image; ?>
+								<p class="post-sub-avatar_text"><?=lang('blog_post_published_by')?> <?php echo $post->get_author_link(); ?></p>
+							<?php else: ?>
+								<p><?=lang('blog_post_published_by')?> <?php echo $post->get_author_link(); ?></p>
+							<?php endif; ?>
+
 						<?php endif; ?>
 						<p>
 							<?=$post->get_date_formatted(lang('blog_post_date_format'))?>
