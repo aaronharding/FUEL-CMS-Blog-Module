@@ -361,7 +361,7 @@ class Blog extends Blog_base_controller {
 					if($this->fuel->blog->config('email_notify_comment_reply')) {
 						$notified = $this->_notify($comment, $post);
 					}
-					
+
 					$this->load->library('session');
 					$vars['post'] = $post;
 					$vars['comment'] = $comment;
