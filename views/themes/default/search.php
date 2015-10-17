@@ -4,7 +4,7 @@
 			<?php if ($searched): ?>
 				<h2><?php
 					$count = count($posts);
-					echo lang($count === 1 ? 'blog_search_plural' : 'blog_search', count($posts), $q);
+					echo $count === 0 ? lang('blog_search_nothing', $q) : ($count == 1 ? lang('blog_search_singular', $count, $q) : lang('blog_search_plural', $count, $q));
 				?></h2>
 			<?php else: ?>
 				<h2>Search</h2>
