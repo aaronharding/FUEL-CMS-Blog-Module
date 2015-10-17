@@ -254,6 +254,7 @@ class Blog_posts_model extends Base_module_model {
 						'list_image',
 						'thumbnail_image',
 						'Settings', 
+						'allow_comments',
 						'sticky',
 						'publish_date',
 						'Meta', 
@@ -466,10 +467,7 @@ class Blog_post_model extends Base_module_record {
 		
 		// initialization... grab all comments
 		$items = array();
-		if (empty($this->_objs['comments']))
-		{
-			$comments = $this->_objs['comments'];
-		}
+		$comments = $this->get_comments();
 
 		$str = '';
 		
