@@ -457,7 +457,7 @@ class Blog_post_model extends Base_module_record {
 	function get_comments_count($order = 'date_added asc', $limit = NULL)
 	{
 		$blog_comments = $this->_CI->fuel->blog->model('blog_comments');
-		$where = array('post_id' => $this->id, $this->_tables['blog_comments'].'.published' => 'yes');
+		$where = array('post_id' => $this->id, $this->_parent_model->tables('blog_comments').'.published' => 'yes');
 		$cnt = $blog_comments->record_count($where, $order, $limit);
 		return $cnt;
 	}
@@ -559,16 +559,16 @@ class Blog_post_model extends Base_module_record {
 				$where = array();
 				if (!$all)
 				{
-					$where[$this->_tables['blog_users'].'.active'] = 'yes';
+					$where[$this->_parent_model->tables('blog_users').'.active'] = 'yes';
 				}
 				$this->_objs[$cache_key] = $this->find_one($where);
 			}
 			else
 			{
-				$where = array($this->_tables['blog_users'].'.fuel_user_id' => $this->author_id);
+				$where = array($this->_parent_model->tables('blog_users').'.fuel_user_id' => $this->author_id);
 				if (!$all)
 				{
-					$where[$this->_tables['blog_users'].'.active'] = 'yes';
+					$where[$this->_parent_model->tables('blog_users').'.active'] = 'yes';
 				}
 				$this->_objs[$cache_key] = $this->lazy_load($where, array(BLOG_FOLDER => 'blog_users_model'), FALSE);
 			}
