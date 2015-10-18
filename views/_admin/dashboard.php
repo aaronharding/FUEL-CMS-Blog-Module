@@ -1,4 +1,4 @@
-		<h3>Recent Blog Posts</h3>
+		<h3>Recente Blog Posts</h3>
 		<ul class="nobullets">
 		<?php foreach($posts as $post) : ?>
 		<li><a href="<?=$post->url?>" target="_blank"><?=$post->title?></a></li>
