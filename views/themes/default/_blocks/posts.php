@@ -63,13 +63,14 @@
 				<div class="posts-pagination">
 					<?php if (!empty($pagination)) : ?><?=$pagination?>  &nbsp;<?php endif; ?>
 				</div>
-				<p>Looking for older posts? <a href="<?=blog_url('archives')?>">View our Archives</a></p>
+				<p>Opzoek naar oudere berichten? <a href="<?=blog_url('archives')?>">Zie het archief</a>.</p>
+				<!-- <p>Looking for older posts? <a href="<?=blog_url('archives')?>">View our Archives</a></p> -->
 			</div>
 		<?php endif; ?>
 		
 	<?php else: ?>
 		<div class="posts-no_posts">
-			<p>There are no posts available.</p>
+			<p>Er zijn geen posts beschikbaar.</p>
 		</div>
 	<?php endif; ?>
 </div>

@@ -39,13 +39,13 @@
 			<?php $posts = $author->posts; ?>
 				<?php if (!empty($posts)) : ?>
 
-				<h4 class="blog-author-title">Posts by <?=$author->name?></h4>
+				<h4 class="blog-author-title">Bericht geplaatst door <?=$author->name?></h4>
 				<?=$this->fuel->blog->block('posts', array(
 					'posts' => $posts,
 					'is_preview' => true,
 					'hide_author' => true
 				))?>
-			<!-- 	<h4 class="blog-author-title">Posts by <?=$author->name?></h4>
+			<!-- 	<h4 class="blog-author-title">Bericht geplaatst door <?=$author->name?></h4>
 				<ul class="blog-author-posts">
 					<?php foreach($posts as $post) : ?>
 					<li class="blog-author-posts-post">

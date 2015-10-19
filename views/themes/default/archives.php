@@ -20,14 +20,14 @@
 							<?php foreach($archives as $post) : ?>
 							<li><?=fuel_edit($post->id, 'Edit Post: '.$post->title, 'blog/posts')?>
 								<a href="<?=$post->url?>"><?=$post->title?></a> 
-								by <?=$post->author_name?>
+								door <?=$post->author_name?>
 							</li>
 							<?php endforeach; ?>
 						</ul>
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
-				<p>There is currently nothing in the archives.</p>
+				<p>Er bevindt zich op dit moment niks in het archief.</p>
 			<?php endif; ?>
 
 		</div><div class="cell cell-two">

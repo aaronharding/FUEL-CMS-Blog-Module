@@ -1,7 +1,7 @@
 <div class="section">
 	<div class="row">
 		<div class="cell cell-full">
-			<h2>Authors</h2>
+			<h2>Auteurs</h2>
 		</div>
 	</div>
 </div>

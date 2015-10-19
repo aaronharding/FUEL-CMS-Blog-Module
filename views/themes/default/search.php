@@ -7,7 +7,7 @@
 					echo $count === 0 ? lang('blog_search_nothing', $q) : ($count == 1 ? lang('blog_search_singular', $count, $q) : lang('blog_search_plural', $count, $q));
 				?></h2>
 			<?php else: ?>
-				<h2>Search</h2>
+				<h2>Zoekken</h2>
 			<?php endif; ?>
 		</div>
 	</div>
@@ -39,7 +39,9 @@
 
 				<?php else : ?>
 
-					<p>Eek, we couldn't find anything. Have you tried <a href="/blog/archives">looking in our archives?</a></p>
+					<p>Ohoh, we hebben niks gevonden. Heb je geprobeerd het te vinden in <a href="/blog/archives">het archief</a>?</p>
+					<!-- <p>Eek, we couldn't find anything. Have you tried <a href="/blog/archives">looking in our archives?</a></p> -->
+					
 					<!-- <p>Input your search below:</p> -->
 					<?=$search_input?>
 
