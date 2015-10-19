@@ -11,10 +11,16 @@ $route[FUEL_ROUTE.'blog/settings'] = BLOG_FOLDER.'/settings';
 unset($blog_controllers);
 
 // for multi-language sites
-$blog_lang_controllers = array('authors', 'categories', 'feed', 'search', 'archives');
-foreach($blog_lang_controllers as $c)
+$blog_lang_controllers = array(
+	'auteurs' => 'authors',
+	'categories' => 'categories',
+	'feed' => 'feed',
+	'zoekken' => 'search',
+	'archief' => 'archives'
+);
+foreach($blog_lang_controllers as $translation => $c)
 {
-	$route['(.{2})/blog/'.$c.'(/.+)?'] = 'blog/'.$c.'/$1';
+	$route['(.{2})/blog/'.$translation.'(/.+)?'] = 'blog/'.$c.'/$1';
 }
 $route['(.{2})/blog(/.+)?'] = 'blog/$1';
 unset($blog_lang_controllers);
