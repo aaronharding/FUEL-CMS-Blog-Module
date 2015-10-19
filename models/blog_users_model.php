@@ -164,7 +164,7 @@ class Blog_user_model extends Base_module_record {
 		$count = 0;
 		foreach ($this->get_posts() as $key => $post) {
 			$count++;
-			if($count > $limit) break;
+			if($count > $limit) continue;
 
 			array_push($posts, array(
 				'title' => $post->link_title
