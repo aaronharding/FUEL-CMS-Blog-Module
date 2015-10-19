@@ -101,7 +101,7 @@ $config['modules']['blog_users'] = array(
 	),
 	
 	'display_field' => 'display_name',
-	'preview_path' => 'blog/authors/{fuel_user_id}',
+	'preview_path' => 'blog/auteurs/{fuel_user_id}',
 	'permission' => array('blog_users', 'create' => 'blog_users/create', 'edit' => 'blog_users/edit', 'publish' => 'blog_users/publish', 'delete' => 'blog_users/delete'),
 	'instructions' => lang('module_instructions_default', 'blog authors'),
 	'archivable' => TRUE,
