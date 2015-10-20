@@ -380,12 +380,6 @@ class Blog_post_model extends Base_module_record {
 	private $_tables;
 	public $author_name;
 
-	
-	function on_init()
-	{
-		$this->_tables = $this->_CI->config->item('tables');
-	}
-	
 	function get_page_title()
 	{
 		if (empty($this->_fields['page_title']))
@@ -448,8 +442,8 @@ class Blog_post_model extends Base_module_record {
 	function get_comments($order = 'date_added asc', $limit = NULL)
 	{
 		$blog_comments = $this->_CI->fuel->blog->model('blog_comments');
-		$where = array('post_id' => $this->id, $this->_tables['blog_comments'].'.published' => 'yes');
-		$order = $this->_tables['blog_comments'].'.'.$order;
+		$where = array('post_id' => $this->id, $this->_parent_model->tables('blog_comments').'.published' => 'yes');
+		$order = $this->_parent_model->tables('blog_comments').'.'.$order;
 		$comments = $blog_comments->find_all($where, $order, $limit);
 		return $comments;
 	}
@@ -464,6 +458,7 @@ class Blog_post_model extends Base_module_record {
 	
 	function get_comments_formatted($block = 'comment', $parent_id = 0, $container_class = 'child')
 	{
+		
 		// initialization... grab all comments
 		$items = array();
 		$comments = $this->get_comments();
@@ -491,9 +486,9 @@ class Blog_post_model extends Base_module_record {
 				$children = $this->get_comments_formatted($block, $item->id);
 				if (!empty($children))
 				{
-					//$str .= "<div class=\"".$container_class."\">\n\t";
+					$str .= "<div class=\"".$container_class."\">\n\t";
 					$str .= $children;
-					//$str .= "</div>\n";
+					$str .= "</div>\n";
 				}
 			}
 		}
@@ -586,10 +581,10 @@ class Blog_post_model extends Base_module_record {
 	function get_author_link()
 	{
 		$author = $this->get_author(TRUE);
-
-		if(is_true_val($author->active)) {
-			return $author->get_clickable_name(true);
-		} else {
+		if(is_true_val($author->active))
+		{
+			return '<a href="'.$author->url.'">'.$author->display_name.'</a>';
+		}else{
 			return $author->display_name;
 		}
 	}
